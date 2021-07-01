@@ -36,7 +36,7 @@ export class Fabric {
         (async () => this.init())();
     }
 
-    async init() {
+    async init(): Promise<void> {
         const promise: Promise<Response> = fetch(this.configRemoteURL);
         const response: Response = await promise;
         if (!response.ok || response.headers.get('content-type') !== 'application/json') {
