@@ -7,7 +7,7 @@ declare module '@novnc/novnc/core/rfb' {
     export interface RfbCredentials {
         username: string;
         password: string;
-        target: string;
+        target?: string;
     }
 
     export interface RfbOptions {
@@ -19,7 +19,7 @@ declare module '@novnc/novnc/core/rfb' {
     }
 
     export default class RFB {
-        constructor(target: string, url: string, options: RfbOptions);
+        constructor(target: Node, url: string, options?: RfbOptions);
         viewOnly: boolean;
         readonly capabilities: Capabilities;
         touchButton: number;
