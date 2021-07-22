@@ -4,9 +4,15 @@
     "module": "es2020",
     "declaration": true,
     "outDir": "./dist",
+    "sourceMap": true,
     "strict": true,
     "allowJs": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": [
+      "ES2020",
+      "dom"
+    ]
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

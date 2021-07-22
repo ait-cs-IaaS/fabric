@@ -1,0 +1,7 @@
+{
+  "user1": {
+    "username": "herbert",
+    "password": "pwd1",
+    "target": "127.0.0.1"
+  }
+}
