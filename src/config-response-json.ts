@@ -17,7 +17,7 @@ export class ConfigResponseJSON {
                     return ['target', 'username', 'password'].includes(k) &&
                         typeof v === 'string';
                 });
-            if (! entries.map(([key, value]) => key ).includes('target')) {
+            if (!entries.map(([k]) => k).includes('target')) {
                 return null;
             }
             for (const [k, v] of entries) {
