@@ -15,7 +15,7 @@ export class Fabric {
         if (!el) {
             return;
         }
-        const url: URL = new URL(target, window.location.protocol.replace('http', 'ws') + '//' + window.location.host);
+        const url: URL = new URL('/upstream/' + target, window.location.protocol.replace('http', 'ws') + '//' + window.location.host);
         this.rfb = new RFB(el, url.toString(), {
             credentials: {
                 username: username ?? '',
