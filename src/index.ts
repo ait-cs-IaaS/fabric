@@ -3,7 +3,7 @@ import {Fabric} from "./fabric";
 const urlSearchParams = new URLSearchParams(window.location.search);
 const urlPathTarget   = window.location.pathname.split('/')[1];
 
-const target: string | null = urlSearchParams.get('target');
+let target: string | null = urlSearchParams.get('target');
 const username: string | null = urlSearchParams.get('username');
 const password: string | null = urlSearchParams.get('password');
 if (target == null) {
