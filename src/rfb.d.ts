@@ -18,6 +18,8 @@ declare module '@novnc/novnc/core/rfb' {
         showDotCursor?: boolean;
     }
 
+    export type RfbEvent = "connect" | "disconnect" | "credentialsrequired" | "securityfailure" | "capabilities" | "clipboard" | "bell" | "desktopname"
+
     export default class RFB {
         constructor(target: Node, url: string, options?: RfbOptions);
         viewOnly: boolean;
@@ -41,6 +43,7 @@ declare module '@novnc/novnc/core/rfb' {
         focus(): void;
         blur(): void;
         clipboardPasteFrom(text: string): void;
+        addEventListener(event: RfbEvent, callback:(event: RfbEvent) => void): void;
 
         static messages: MessageMethods;
         static cursors: Cursors;

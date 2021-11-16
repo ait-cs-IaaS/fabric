@@ -11,10 +11,11 @@ export class Fabric {
         private password: string | null
     ) {
         console.log('[FABRIC] initialized');
-        const el: Node | null = document.querySelector(this.selector);
+        const el: Element | null = document.querySelector(this.selector);
         if (!el) {
             return;
         }
+
         const url: URL = new URL('/upstream/' + target, window.location.protocol.replace('http', 'ws') + '//' + window.location.host);
         this.rfb = new RFB(el, url.toString(), {
             credentials: {
@@ -22,43 +23,35 @@ export class Fabric {
                 password: password ?? '',
             }
         });
-        // (async () => this.init())();
+        this.rfb.resizeSession = true;
+        this.rfb.addEventListener("clipboard", this.clipboardReceive);
+
+
+        const pasteButton: Node | null = document.getElementById('noVNC_clipboard_text');
+        if (pasteButton) {
+          pasteButton.addEventListener('click', (event: any) => {
+            navigator.clipboard.readText().then((paste:string) => {
+              console.log(`[FABRIC] clipboardData: "${paste}"`);
+              this.clipboardToFabric(paste);
+            })
+          });
+        }
+
+        window.addEventListener('paste', (event: any) => {
+          let paste = (event.clipboardData || (window as any).clipboardData).getData('text');
+          console.log(`[FABRIC] clipboardData: "${paste}"`);
+
+          this.clipboardToFabric(paste);
+          event.preventDefault();
+        });
     }
 
-    // async init(): Promise<void> {
-    //     const promise: Promise<Response> = fetch(this.configRemoteURL);
-    //     const response: Response = await promise;
-    //     console.log(`[FABRIC] response from remote url ${this.configRemoteURL}`, response);
-    //     if (!response.ok || response.headers.get('content-type')?.startsWith('application/json') === false) {
-    //         console.exception('[FABRIC] could not retrieve a config file in json format');
-    //         return;
-    //     }
-    //     const [json, error]: [ConfigResponseJSON, any] = await response
-    //         .json()
-    //         .then(data => [data, null])
-    //         .catch(e => Promise.resolve([null, e])) as [ConfigResponseJSON, any];
-    //     if (error) {
-    //         console.exception('[FABRIC] unexpected exception occured', error);
-    //     }
-    //     console.log('[FABRIC] parsed response', json);
-    //     const config: ConfigResponseJSON | null = ConfigResponseJSON.guard(json);
-    //     if (!config) {
-    //         console.exception('[FABRIC] validation of config failed');
-    //         return;
-    //     }
-    //     if (!(this.user in config)) {
-    //         console.exception('[FABRIC] user configuration not in config file', this.user);
-    //         return;
-    //     }
-    //     const el: Node | null = document.querySelector(this.selector);
-    //     if (!el) {
-    //         return;
-    //     }
-    //     this.rfb = new RFB(el, config[this.user].target ?? '', {
-    //         credentials: {
-    //             username: config[this.user].username ?? '',
-    //             password: config[this.user].password ?? '',
-    //         }
-    //     });
-    // }
+    clipboardReceive(e:any) {
+      let clip = (document.getElementById('noVNC_clipboard_text') as HTMLInputElement);
+      clip.value = e.detail.text;
+    }
+
+    clipboardToFabric(text:string) {
+      this.rfb?.clipboardPasteFrom(text);
+    }
 }
