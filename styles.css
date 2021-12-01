@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
+
+body {
+    font-family: "Rubik", sans-serif;
+    overflow: hidden;
+    font-size: 16px;
+    margin: 0; 
+    padding: 0; 
+    height: 100vh; 
+    width: 100vw;
+}
+
+#fabric {
+    height: 100vh; 
+    width: 100vw; 
+    background: #ddd;
+}
+
+#noVNC_clipboard_container {
+    z-index: 1000;
+    display: block;
+    position: absolute;;
+    transition: margin 400ms;
+    left: 100vw;
+    top: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -40px;
+    box-shadow: 10px 2px 5px #0000005c;
+    width: 40px;
+}
+
+#noVNC_clipboard_container .btn {
+    display: block;
+    height: 24px;
+    width: 24px;
+    padding: 10px;
+    margin: 0;
+    cursor: move;
+    border: none;
+    background-color: #790c11;
+    color: #dedfe4;
+    transition: 250ms;
+}
+
+#noVNC_clipboard_container .btn:hover {
+    background-color: #d34a5d;
+    color: #fff;
+}
+
+#copyFromClient {
+    border-top-left-radius: 4px;
+}
+
+#copyToClient {
+    border-bottom-left-radius: 4px;
+}
+
+#noVNC_clipboard_container .btn a {
+    display: block;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+
+#noVNC_clipboard_container .btn a svg {
+    position: relative;
+    margin: auto;
+    display: block;
+    height: 100%;
+}
+
+
+#noVNC_clipboard_container .btn a svg use {
+    fill: #fff;
+}
+
+#noVNC_clipboard_container textarea {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    z-index: -1000;
+}
+
+.hint {
+    display: block;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    border-radius: 4px;
+    background-color: #000000c7;
+    color: #dedfe4;
+    padding: 20px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    animation: 2.0s fadeIn;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+span.key {
+    display: inline-block;
+    border-radius: 6px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 4px;
+    min-width: 20px;
+    text-align: center;
+    border: 2px solid #d0d0d0;
+    box-shadow: 3px 2px 5px #0000005c;
+}
