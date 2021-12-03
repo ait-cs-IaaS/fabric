@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>AIT Fabric - Test</title>
+  <title>AIT Fabric</title>
   <meta charset="utf-8">
 
   <link rel="stylesheet" href="styles.css">
   <script src="ux.js"></script>
 
-  <!-- Main Logic -->
   <script src="main.js" defer></script>
 
 </head>
@@ -32,10 +31,45 @@
           </svg>
         </a>
       </div>
+      <div id="help_btn" class="btn">
+        <a onclick="help()">
+          <svg class="bi" style="margin-left: 2px;" width="20" height="20">
+            <use xlink:href="#help-icon"></use>
+          </svg>
+        </a>
+      </div>
       <textarea id="noVNC_clipboard_text" rows=1 placeholder="insert into clipboard"></textarea>
     </div>
 
     <div id="hints_container">
+
+      <div id="help" class="hint hidden">
+        <h1>Help</h1>
+        For security reasons it is not straightforward possible to share the clipboard between your local computer and
+        the client device. However, to take advantage of this convenience, you can use these buttons. The upper one is
+        for copying from the client and the lower one is for pasting into the client clipboard.
+
+        <h3>Copy <strong>from</strong> Client</h3>
+        <ol>
+          <li>Select text to copy (inside client)</li>
+          <li>Click on the <svg class="bi" style="fill: #dedfe4; margin: -3px 3px" width="18" height="18">
+              <use xlink:href="#copyFromClient-icon"></use>
+            </svg> button</li>
+          <li>Insert on local machine using the regular key-combination <strong>ctrl + v</strong></li>
+        </ol>
+
+        <h3>Copy <strong>to</strong> Client</h3>
+        <ol>
+          <li>Select text to copy (on local machine)</li>
+          <li>Copy selection using the regular key-combination: <strong>ctrl + c</strong></li>
+          <li>Click on the <svg class="bi" style="fill: #dedfe4; margin: -3px 3px" width="17" height="17">
+              <use xlink:href="#importToClientClipboard-icon"></use>
+            </svg> button</li>
+          <li>Insert into client's clipboard by pressing <strong>ctrl + v</strong></li>
+          <li>The copied text is now available inside the client machine and can be inserted using regular
+            key-combination</li>
+        </ol>
+      </div>
 
       <div id="copy-from-hint" class="hint hidden">
         Selection is copied to local clipboard.
@@ -54,21 +88,26 @@
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="copyFromClient-icon" viewBox="0 0 162.6 210.19">
-      <g>
         <rect x="69.89" y="100.58" width="60.77" height="18.17" rx="3.17" />
         <rect x="69.89" y="127.94" width="60.77" height="18.17" rx="3.17" />
         <rect x="69.89" y="155.29" width="46.09" height="18.17" rx="3.17" />
         <path
           d="M146,65.15h0V45.52a27.36,27.36,0,0,0-27.36-27.35h-1.75A27.27,27.27,0,0,0,91.27,0H54.72A27.27,27.27,0,0,0,29.11,18.17H27.36A27.36,27.36,0,0,0,0,45.52V155a27.36,27.36,0,0,0,27.36,27.35H38v3.4a24.49,24.49,0,0,0,24.49,24.48h75.68a24.49,24.49,0,0,0,24.48-24.48V88.33A24.49,24.49,0,0,0,146,65.15Zm-3.75-1-.12,0ZM140.29,64l-.31,0ZM54.72,18.17H91.27a9.24,9.24,0,0,1,9.19,9.19,9.25,9.25,0,0,1-9.41,9H54.72a9.25,9.25,0,0,1-9.2-9.19A9.06,9.06,0,0,1,54.72,18.17ZM38,88.33v75.82H27.36A9.24,9.24,0,0,1,18.17,155V45.52a9.24,9.24,0,0,1,9.19-9.19h1.75A27.27,27.27,0,0,0,54.72,54.5H91.27a27.27,27.27,0,0,0,25.6-18.17h1.75a9.25,9.25,0,0,1,9.2,9.19V63.85H62.44A24.49,24.49,0,0,0,38,88.33ZM144.6,185.71a6.49,6.49,0,0,1-6.48,6.48H62.44A6.49,6.49,0,0,1,56,185.71V88.33a6.49,6.49,0,0,1,6.49-6.48h75.68a6.49,6.49,0,0,1,6.48,6.48Z" />
-      </g>
     </symbol>
     <symbol id="importToClientClipboard-icon" viewBox="0 0 177.38 188.85">
-        <g>
-          <path
-            d="M27.36,164.15A9.24,9.24,0,0,1,18.17,155V45.52a9.24,9.24,0,0,1,9.19-9.19h1.75A27.27,27.27,0,0,0,54.72,54.5H91.27a27.27,27.27,0,0,0,25.6-18.17h1.75a9.25,9.25,0,0,1,9.2,9.19v66.1H146V45.52a27.36,27.36,0,0,0-27.36-27.35h-1.75A27.27,27.27,0,0,0,91.27,0H54.72A27.27,27.27,0,0,0,29.11,18.17H27.36A27.36,27.36,0,0,0,0,45.52V155a27.36,27.36,0,0,0,27.36,27.35H74.14L56,164.15Zm27.36-146H91.27a9.24,9.24,0,0,1,9.19,9.19,9.25,9.25,0,0,1-9.41,9H54.72a9.25,9.25,0,0,1-9.2-9.19A9.06,9.06,0,0,1,54.72,18.17Z" />
-          <path
-            d="M168.38,124.62H82.72l28.16-28.15a10.58,10.58,0,1,0-15-15L61.14,116.27a24.59,24.59,0,0,0,0,34.66L96,185.75a10.57,10.57,0,0,0,15,0,10.57,10.57,0,0,0,0-15h0L82.77,142.62h85.61a9,9,0,0,0,0-18Z" />
-        </g>
+        <path
+          d="M27.36,164.15A9.24,9.24,0,0,1,18.17,155V45.52a9.24,9.24,0,0,1,9.19-9.19h1.75A27.27,27.27,0,0,0,54.72,54.5H91.27a27.27,27.27,0,0,0,25.6-18.17h1.75a9.25,9.25,0,0,1,9.2,9.19v66.1H146V45.52a27.36,27.36,0,0,0-27.36-27.35h-1.75A27.27,27.27,0,0,0,91.27,0H54.72A27.27,27.27,0,0,0,29.11,18.17H27.36A27.36,27.36,0,0,0,0,45.52V155a27.36,27.36,0,0,0,27.36,27.35H74.14L56,164.15Zm27.36-146H91.27a9.24,9.24,0,0,1,9.19,9.19,9.25,9.25,0,0,1-9.41,9H54.72a9.25,9.25,0,0,1-9.2-9.19A9.06,9.06,0,0,1,54.72,18.17Z" />
+        <path
+          d="M168.38,124.62H82.72l28.16-28.15a10.58,10.58,0,1,0-15-15L61.14,116.27a24.59,24.59,0,0,0,0,34.66L96,185.75a10.57,10.57,0,0,0,15,0,10.57,10.57,0,0,0,0-15h0L82.77,142.62h85.61a9,9,0,0,0,0-18Z" />
+    </symbol>
+
+    <symbol id="help-icon" viewBox="0 0 190.57 190.57">
+        <path
+          d="M101.77,139.16H90a5,5,0,0,0-5.16,5.16v11A5,5,0,0,0,90,160.52h11.76a5.26,5.26,0,0,0,3.88-1.47,5,5,0,0,0,1.47-3.69v-11a5.06,5.06,0,0,0-1.47-3.69A5.26,5.26,0,0,0,101.77,139.16Z" />
+        <path
+          d="M129,41.3a35.4,35.4,0,0,0-13-8.2,54.74,54.74,0,0,0-19.26-3.05,50.76,50.76,0,0,0-18,3.05,44.82,44.82,0,0,0-13.88,8.24A36.45,36.45,0,0,0,52.46,68,4.72,4.72,0,0,0,54,71.59a5,5,0,0,0,3.48,1.35h8.69a5.85,5.85,0,0,0,3.48-1.09,6.24,6.24,0,0,0,2.21-3.7c1.39-7.55,4.27-13,8.56-16.12a26.1,26.1,0,0,1,15.78-4.78,28.87,28.87,0,0,1,11.2,2.28A19.79,19.79,0,0,1,115.81,56a14.12,14.12,0,0,1,2.34,10.21,21,21,0,0,1-3.72,9.16,63,63,0,0,1-7.57,8.82c-3,3-6,6.12-9,9.36a51.41,51.41,0,0,0-7.66,11.07,34.2,34.2,0,0,0-3.55,14.21v7.24a4.57,4.57,0,0,0,1.41,3.54,4.87,4.87,0,0,0,3.39,1.26h9.77a5.13,5.13,0,0,0,3.78-1.38,6.66,6.66,0,0,0,1.73-3.61v-.18c0-1.23,0-2.46.09-3.66s.15-2.53.27-3.84a23.77,23.77,0,0,1,3.48-10.34A57.25,57.25,0,0,1,118,98.42c3-3.1,6-6.27,8.8-9.43a54.64,54.64,0,0,0,7.56-10.69A33.25,33.25,0,0,0,138.06,65a30.87,30.87,0,0,0-1.87-12.35A32.4,32.4,0,0,0,129,41.3Z" />
+        <path
+          d="M95.29,0a95.29,95.29,0,1,0,95.28,95.29A95.4,95.4,0,0,0,95.29,0Zm0,173.57a78.29,78.29,0,1,1,78.28-78.28A78.38,78.38,0,0,1,95.29,173.57Z" />
     </symbol>
   </svg>
 
