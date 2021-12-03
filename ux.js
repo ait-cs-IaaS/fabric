@@ -18,8 +18,12 @@ function copyToClient() {
     showHint("copy-to-hint_01");
 };
 
+function help() {
+    showHint("help");
+};
+
 function showHint(id) {
-    var all_hints =  document.getElementsByClassName("hint");
+    var all_hints = document.getElementsByClassName("hint");
     var i;
     for (i = 0; i < all_hints.length; i++) {
         all_hints[i].classList.add("hidden");
@@ -44,11 +48,11 @@ function showInsertHint() {
 
 function init() {
 
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         if (event.ctrlKey && event.key === 'v') {
-          showInsertHint();
+            showInsertHint();
         }
-      });
+    });
 
     var clipboard_container = document.getElementById('noVNC_clipboard_container')
     var end_position = 0;
