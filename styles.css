@@ -129,7 +129,7 @@ h3 strong {
     background-color: #000000c7;
     color: #dedfe4;
     padding: 20px;
-    z-index: 2000;
+    z-index: -1000;
 }
 
 .hidden {
