@@ -7,7 +7,11 @@ function copyFromClient() {
     var clipboard_text = document.getElementById("noVNC_clipboard_text");
     clipboard_text.select();
     clipboard_text.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(clipboard_text.value);
+    if (!navigator.clipboard){
+        document.execCommand("copy");
+    } else {
+        navigator.clipboard.writeText(clipboard_text.value);
+    }
     showHint("copy-from-hint")
 }
 
