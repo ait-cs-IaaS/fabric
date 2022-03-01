@@ -23,13 +23,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-        fallback: {
-          "buffer": require.resolve('buffer/'),
-          "util": require.resolve("util/"),
-          "stream": require.resolve("stream-browserify"),
-          "crypto": require.resolve("crypto-browserify")
-        }
+        extensions: ['.tsx', '.ts', '.js']
     },
     output: {
         filename: 'main.js',
