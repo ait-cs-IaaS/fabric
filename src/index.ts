@@ -1,3 +1,5 @@
+import {JWT} from "./jwt";
+
 type Creds = {
     target: string,
     username: string | null,
@@ -9,38 +11,10 @@ const hasAuth: boolean = urlSearchParams.has("auth");
 const hasTarget: boolean = urlSearchParams.has("target");
 
 
-function base64urlDecode(str: string) {
-  return Buffer.from(base64urlUnescape(str), 'base64').toString();
-}
-
-function base64urlUnescape(str: string) {
-  str += new Array(5 - str.length % 4).join('=');
-  return str.replace(/\-/g, '+').replace(/_/g, '/');
-}
-
-function jwt_decode(token: string) {
-  if (!token) {
-    throw new Error('No token supplied');
-  }
-
-  var segments = token.split('.');
-  if (segments.length !== 3) {
-    throw new Error('Not enough or too many segments');
-  }
-
-  // All segment should be base64
-  var payloadSeg = segments[1];
-
-  var payload = JSON.parse(base64urlDecode(payloadSeg));
-
-  return payload;
-}
-
-
 function credsViaJWT(): Creds {
     const auth: string = urlSearchParams.get("auth") as string;
     console.assert(typeof auth === 'string');
-    var payload = jwt_decode(auth);
+    var payload = new JWT(auth).payload;
     return payload as Creds;
 }
 
