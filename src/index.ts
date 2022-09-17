@@ -32,8 +32,8 @@ function credsViaPath(): Creds {
     const pathTarget: string = window.location.pathname.split("/")[1];
     return {
         target: pathTarget,
-        username: null,
-        password: null
+        username: urlSearchParams.get("username"),
+        password: urlSearchParams.get("password")
     };
 }
 
