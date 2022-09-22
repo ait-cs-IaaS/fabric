@@ -9,6 +9,7 @@ export class JWT {
   }
 
   base64urlDecode(str: string) {
+    var Buffer = require('buffer/').Buffer;
     return Buffer.from(this.base64urlUnescape(str), 'base64').toString();
   }
 
