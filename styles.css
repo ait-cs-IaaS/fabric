@@ -1,251 +1,251 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
 
 html {
-	overflow: hidden;
-	position: fixed;
+  overflow: hidden;
+  position: fixed;
 }
 
 body {
-	font-family: 'Rubik', sans-serif;
-	overflow: hidden;
-	font-size: 16px;
-	font-weight: 300;
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	width: 100vw;
+  font-family: "Rubik", sans-serif;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 h3 {
-	font-size: 1.2em;
-	text-transform: none;
-	font-weight: 400;
+  font-size: 1.2em;
+  text-transform: none;
+  font-weight: 400;
 }
 
 h3 strong {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 #fabric {
-	height: 100vh;
-	width: 100vw;
-	background: #ddd;
-	overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: #ddd;
+  overflow: hidden;
 }
 
 #noVNC_clipboard_container {
-	display: flex;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-content: flex-end;
-	flex-flow: row wrap;
-	pointer-events: none;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-content: flex-end;
+  flex-flow: row wrap;
+  pointer-events: none;
 }
 
 #noVNC_clipboard_container.hover {
-	pointer-events: all;
+  pointer-events: all;
 }
 
 .btn-group {
-	box-shadow: 3px 2px 5px #0000005c;
-	display: flex;
+  box-shadow: 3px 2px 5px #0000005c;
+  display: flex;
 }
 
 #noVNC_clipboard_container .btn {
-	display: block;
-	height: 20px;
-	width: 20px;
-	padding: 7px;
-	margin: 0;
-	cursor: move;
-	border: none;
-	background-color: #666;
-	transition: 250ms;
-	pointer-events: all;
+  display: block;
+  height: 20px;
+  width: 20px;
+  padding: 7px;
+  margin: 0;
+  cursor: move;
+  border: none;
+  background-color: #666;
+  transition: 250ms;
+  pointer-events: all;
 }
 
 #noVNC_clipboard_container .btn:hover {
-	color: #fff;
+  color: #fff;
 }
 
 #copyFromClient {
-	border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
 
 #help_btn {
-	border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 #noVNC_clipboard_container .btn a {
-	display: block;
-	cursor: pointer;
-	height: 100%;
-	width: 100%;
+  display: block;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
 }
 
 #noVNC_clipboard_container .btn a svg {
-	position: relative;
-	margin: auto;
-	display: block;
-	height: 100%;
+  position: relative;
+  margin: auto;
+  display: block;
+  height: 100%;
 }
 
 #noVNC_clipboard_container .btn a svg use {
-	fill: rgba(255, 255, 255, 0.4);
+  fill: rgba(255, 255, 255, 0.4);
 }
 
 #noVNC_clipboard_container .btn a:hover svg use,
 #noVNC_clipboard_container .btn a.active svg use {
-	fill: rgba(255, 255, 255, 1);
+  fill: rgba(255, 255, 255, 1);
 }
 
 #noVNC_clipboard_container textarea {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	opacity: 0;
-	z-index: -1000;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  opacity: 0;
+  z-index: -1000;
 }
 
 #hints_container {
-	display: block;
-	height: 100%;
-	width: 100%;
-	z-index: 1000;
-	position: absolute;
-	top: 20%;
-	margin: auto;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: absolute;
+  top: 20%;
+  margin: auto;
 }
 
 .hint {
-	display: block;
-	position: absolute;
-	right: 40px;
-	bottom: 40px;
-	border-radius: 4px;
-	background-color: #000000c7;
-	color: #dedfe4;
-	padding: 20px;
-	pointer-events: none;
+  display: block;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 4px;
+  background-color: #000000c7;
+  color: #dedfe4;
+  padding: 20px;
+  pointer-events: none;
 }
 
 .hidden {
-	opacity: 0;
+  opacity: 0;
 }
 
 #help.visible {
-	animation: none !important;
-	opacity: 1;
+  animation: none !important;
+  opacity: 1;
 }
 
 .visible {
-	animation: 2s fadeIn;
-	animation-fill-mode: forwards;
-	opacity: 1;
+  animation: 2s fadeIn;
+  animation-fill-mode: forwards;
+  opacity: 1;
 }
 
 @keyframes fadeIn {
-	0% {
-		opacity: 1;
-	}
-	70% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 span.key {
-	display: inline-block;
-	border-radius: 6px;
-	height: 20px;
-	padding: 10px;
-	margin: 0 4px;
-	min-width: 20px;
-	text-align: center;
-	border: 2px solid #d0d0d0;
-	box-shadow: 3px 2px 5px #0000005c;
+  display: inline-block;
+  border-radius: 6px;
+  height: 20px;
+  padding: 10px;
+  margin: 0 4px;
+  min-width: 20px;
+  text-align: center;
+  border: 2px solid #d0d0d0;
+  box-shadow: 3px 2px 5px #0000005c;
 }
 
 #help {
-	margin: auto;
-	width: 50%;
-	max-width: 60em;
-	min-width: 40em;
-	position: absolute;
-	left: 0;
-	line-height: 1.4;
-	padding: 20px 40px;
-	cursor: default;
-	bottom: auto;
-	top: 10%;
-	display: block;
+  margin: auto;
+  width: 50%;
+  max-width: 60em;
+  min-width: 40em;
+  position: absolute;
+  left: 0;
+  line-height: 1.4;
+  padding: 20px 40px;
+  cursor: default;
+  bottom: auto;
+  top: 10%;
+  display: block;
 }
 
 #help.visible {
-	animation: 3s fadeIn;
-	animation-fill-mode: forwards;
-	opacity: 1;
+  animation: 3s fadeIn;
+  animation-fill-mode: forwards;
+  opacity: 1;
 }
 
 #help:hover {
-	animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .tooltip {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: #000000c7;
-	color: #fff;
-	text-align: center;
-	padding: 8px;
-	border-radius: 4px;
-	position: absolute;
-	z-index: 1;
+  visibility: hidden;
+  width: 120px;
+  background-color: #000000c7;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
 }
 
 .tooltip:hover .tooltiptext {
-	visibility: visible;
+  visibility: visible;
 }
 
 .tooltip .tooltiptext::after {
-	content: ' ';
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: #000000c7 transparent transparent transparent;
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000000c7 transparent transparent transparent;
 }
 
 .tooltip .tooltiptext {
-	width: 120px;
-	bottom: 100%;
-	left: 50%;
-	margin-left: -60px;
-	margin-bottom: 10px;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  margin-bottom: 10px;
 }
 
 .tooltip .tooltiptext {
-	opacity: 0;
-	transition: opacity 1s;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .tooltip:hover .tooltiptext {
-	opacity: 1;
+  opacity: 1;
 }
