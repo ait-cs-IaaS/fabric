@@ -1,0 +1,19 @@
+
+repos:
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: 'v8.32.0'
+    hooks:
+    - id: eslint
+      additional_dependencies:
+        - "eslint"
+        - "@typescript-eslint/eslint-plugin"
+        - "eslint-config-prettier"
+        - "eslint-plugin-prettier"
+        - "html-webpack-plugin"
+        - "prettier"
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
