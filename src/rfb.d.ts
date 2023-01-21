@@ -59,6 +59,7 @@ declare module "@novnc/novnc/core/rfb" {
     static cursors: Cursors;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Websock {}
 
   interface MessageMethods {

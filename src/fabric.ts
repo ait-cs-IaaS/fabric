@@ -34,7 +34,7 @@ export class Fabric {
       "noVNC_clipboard_text"
     );
     if (pasteButton) {
-      pasteButton.addEventListener("click", (event: any) => {
+      pasteButton.addEventListener("click", () => {
         navigator.clipboard.readText().then((paste: string) => {
           console.log(`[FABRIC] clipboardData: "${paste}"`);
           this.clipboardToFabric(paste);

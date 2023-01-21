@@ -7,6 +7,7 @@ repos:
       additional_dependencies:
         - "eslint"
         - "@typescript-eslint/eslint-plugin"
+        - "@typescript-eslint/parser"
         - "eslint-config-prettier"
         - "eslint-plugin-prettier"
         - "html-webpack-plugin"

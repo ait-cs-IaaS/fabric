@@ -13,7 +13,7 @@ const hasTarget: boolean = urlSearchParams.has("target");
 function credsViaJWT(): Creds {
   const auth: string = urlSearchParams.get("auth") as string;
   console.assert(typeof auth === "string");
-  var payload = new JWT(auth).payload;
+  const payload = new JWT(auth).payload;
   return payload as Creds;
 }
 
