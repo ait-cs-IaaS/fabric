@@ -1,5 +1,5 @@
 export class ConnectionConfig {
-    target?: string;
-    username?: string;
-    password?: string;
+  target?: string;
+  username?: string;
+  password?: string;
 }
