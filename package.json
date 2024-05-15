@@ -1,6 +1,6 @@
 {
   "name": "fabric",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -19,17 +19,18 @@
   "author": "Benjamin Akhras, Daniel Satanik",
   "license": "Hookah-Ware",
   "dependencies": {
-    "@novnc/novnc": "^1.3.0",
+    "@novnc/novnc": "^1.4.0",
     "buffer": "^6.0.3"
   },
   "devDependencies": {
-    "@types/websocket": "^1.0.5",
-    "html-webpack-plugin": "^5.3.2",
-    "ts-loader": "^9.2.3",
+    "@types/websocket": "^1.0.10",
+    "copy-webpack-plugin": "^12.0.2",
+    "html-webpack-plugin": "^5.6.0",
+    "ts-loader": "^9.5.1",
     "tslint": "^6.1.3",
-    "typescript": "^4.5.5",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.5.0"
+    "typescript": "^4.9.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.2"
   }
 }
